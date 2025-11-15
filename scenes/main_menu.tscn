@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b58wblr87u75f"]
+[gd_scene load_steps=8 format=3 uid="uid://b58wblr87u75f"]
 
 [ext_resource type="Shader" uid="uid://bvxq3odv3ca2p" path="res://assets/shaders/pixelate.gdshader" id="1_ekxnf"]
 [ext_resource type="Theme" uid="uid://bo8tayqskv3i5" path="res://assets/themes/ui.tres" id="1_l6cm7"]
@@ -43,6 +43,9 @@ _data = {
 &"RESET": SubResource("Animation_ekxnf"),
 &"shake": SubResource("Animation_l6cm7")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
+shader = ExtResource("1_ekxnf")
 
 [node name="Main Menu" type="Control"]
 material = SubResource("ShaderMaterial_bqqt6")
@@ -150,3 +153,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_bqqt6")
 }
 autoplay = "shake"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_ekxnf")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
