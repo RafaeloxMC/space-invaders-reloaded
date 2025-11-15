@@ -44,5 +44,6 @@ func _reset_timer() -> void:
 func _shoot() -> void:
 	var projectile := proj.instantiate() as Area2D
 	projectile.global_position = global_position
+	projectile.position.y += 25
 	projectile.rotation_degrees = 180
 	add_sibling(projectile)

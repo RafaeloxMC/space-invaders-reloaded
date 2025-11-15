@@ -15,3 +15,8 @@ func _process(delta: float) -> void:
 	var direction: Vector2 = Vector2.UP.rotated(rotation)
 	position += direction * speed * delta
 	z_index = 4096
+
+
+func _on_body_entered(body: Node2D) -> void:
+	body.queue_free()
+	print("QUEUED FREE A BODY")
