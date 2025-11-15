@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4ogiotdtqcss"]
+[gd_scene load_steps=6 format=3 uid="uid://b4ogiotdtqcss"]
 
 [ext_resource type="Texture2D" uid="uid://l6kofwrfqpgt" path="res://assets/sprites/aircraft.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://brjbof0mh53lf" path="res://scripts/enemy.gd" id="1_md0e3"]
@@ -19,9 +19,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7p1mj"]
-radius = 16.03122
-
 [node name="Enemy" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_md0e3")
@@ -30,6 +27,3 @@ proj = ExtResource("2_4ra3w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_4ra3w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7p1mj")
