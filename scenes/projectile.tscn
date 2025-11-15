@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlnx3n7dwa3gd"]
+
+[ext_resource type="Texture2D" uid="uid://b4t57td3mn4qw" path="res://assets/sprites/projectile.png" id="1_c8fcr"]
+[ext_resource type="Script" uid="uid://dr7d1il3obtgq" path="res://scripts/projectile.gd" id="1_q3m7n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8fcr"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3m7n"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_softn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3m7n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="Area2D"]
+z_index = 4096
+texture_filter = 1
+script = ExtResource("1_q3m7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c8fcr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_softn")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://clcrbkmkhik8j"]
+[gd_scene load_steps=7 format=3 uid="uid://clcrbkmkhik8j"]
 
 [ext_resource type="Texture2D" uid="uid://l6kofwrfqpgt" path="res://assets/sprites/aircraft.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://ccl77ou7jhupc" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://dlnx3n7dwa3gd" path="res://scenes/projectile.tscn" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -25,6 +26,7 @@ radius = 17.0
 texture_filter = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_g2els")
+proj = ExtResource("2_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qhqgy")

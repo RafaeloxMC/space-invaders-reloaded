@@ -3,11 +3,8 @@ extends CharacterBody2D
 @export var proj: PackedScene
 
 func _physics_process(_delta: float) -> void:
-	self.global_position = lerp(self.global_position, get_global_mouse_position(), 0.1)
-	if(Input.is_action_pressed("attack")):
+	if randi_range(0, 1000) == 999:
 		var projectile = proj.instantiate() as Area2D
 		projectile.global_position = self.global_position
+		projectile.rotation_degrees = 180
 		self.add_sibling(projectile)
-		print("SPAWNED")
-		pass
-	move_and_slide()
