@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://bs41cmai2dgk8"]
+[gd_scene load_steps=4 format=3 uid="uid://bs41cmai2dgk8"]
+
+[ext_resource type="Theme" uid="uid://bo8tayqskv3i5" path="res://assets/themes/ui.tres" id="1_uwrxv"]
+[ext_resource type="Shader" uid="uid://bvxq3odv3ca2p" path="res://assets/shaders/pixelate.gdshader" id="2_yqjtg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnu2h"]
+shader = ExtResource("2_yqjtg")
 
 [node name="Game" type="Node2D"]
 
@@ -8,3 +14,27 @@
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Environment"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -27.0
+offset_right = 153.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uwrxv")
+theme_override_font_sizes/font_size = 48
+text = "game scene"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_lnu2h")
+offset_right = 1152.0
+offset_bottom = 648.0
