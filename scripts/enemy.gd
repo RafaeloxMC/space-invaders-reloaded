@@ -12,8 +12,9 @@ var _half_width: float
 
 func _ready() -> void:
 	_camera = get_viewport().get_camera_2d()
-	_half_width = _camera.get_viewport_rect().size.x * 0.5 if _camera else 0.0
+	_half_width = _camera.get_viewport_rect().size.x * 0.5 if _camera else 1152.0 / 2
 	_reset_timer()
+	self.position.x = randf_range(0, _camera.get_viewport_rect().size.x if _camera else 1152.0)
 
 func _physics_process(delta: float) -> void:
 	_timer -= delta
