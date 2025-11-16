@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var score: Label = $Environment/Score
+@onready var lives: Label = $Environment/Control/Lives
 
 @export var enemy: PackedScene
 
@@ -14,13 +15,18 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if !self.find_child("Player") && !reloading:
 		reloading = true
+		GameManager.remove_life()
 		Engine.time_scale = 0.5
 		await get_tree().create_timer(2).timeout
 		Engine.time_scale = 1
-		get_tree().reload_current_scene()
+		if GameManager.lives <= 0:
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		else:
+			get_tree().reload_current_scene()
 		return
 	
 	score.text = "Score " + str(GameManager.score)
+	lives.text = str(GameManager.lives) + " Lives"
 	
 	if randi_range(0, 1000) == 999:
 		var projectile = enemy.instantiate() as CharacterBody2D

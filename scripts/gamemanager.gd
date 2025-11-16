@@ -2,6 +2,7 @@ extends Node
 
 var score = 0
 var score_steps = 45
+var lives = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,3 +14,6 @@ func _process(delta: float) -> void:
 	
 func increment_score() -> void:
 	score += score_steps
+
+func remove_life() -> void:
+	lives -= 1
