@@ -9,6 +9,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_play_pressed() -> void:
+	GameManager.score = 0
+	GameManager.lives = 3
 	get_tree().change_scene_to_packed(game_scene)
 
 func _on_options_pressed() -> void:
