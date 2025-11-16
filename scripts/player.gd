@@ -3,7 +3,9 @@ extends CharacterBody2D
 @export var proj: PackedScene
 
 func _physics_process(_delta: float) -> void:
-	self.global_position = lerp(self.global_position, get_global_mouse_position(), 0.1)
+	var lerped: Vector2 = lerp(self.global_position, get_global_mouse_position(), 0.1)
+	self.global_position.x = clamp(lerped.x, 0, 1152)
+	self.global_position.y = clamp(lerped.y, 0, 648)
 	if(Input.is_action_pressed("attack")):
 		var projectile = proj.instantiate() as Area2D
 		projectile.global_position = self.global_position
