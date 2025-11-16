@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs41cmai2dgk8"]
+[gd_scene load_steps=7 format=3 uid="uid://bs41cmai2dgk8"]
 
 [ext_resource type="Script" uid="uid://crnkevxt8yb2e" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b4ogiotdtqcss" path="res://scenes/enemy.tscn" id="2_lbhrr"]
 [ext_resource type="Shader" uid="uid://bvxq3odv3ca2p" path="res://assets/shaders/pixelate.gdshader" id="2_yqjtg"]
+[ext_resource type="Theme" uid="uid://bo8tayqskv3i5" path="res://assets/themes/ui.tres" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://clcrbkmkhik8j" path="res://scenes/player.tscn" id="3_lnu2h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lnu2h"]
@@ -19,14 +20,22 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_lnu2h")
-offset_right = 1152.0
+[node name="Score" type="Label" parent="Environment"]
+offset_top = 607.0
+offset_right = 144.0
 offset_bottom = 648.0
+theme = ExtResource("3_iywne")
+theme_override_font_sizes/font_size = 36
+text = "Score 0"
 
 [node name="Player" parent="." instance=ExtResource("3_lnu2h")]
 z_index = 4096
 position = Vector2(206, 449)
+
+[node name="ShaderLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="ShaderLayer"]
+material = SubResource("ShaderMaterial_lnu2h")
+offset_right = 1152.0
+offset_bottom = 648.0

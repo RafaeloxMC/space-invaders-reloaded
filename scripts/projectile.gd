@@ -18,5 +18,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if body.name != "Player" && !body.is_queued_for_deletion():
+		GameManager.increment_score()
 	body.queue_free()
-	print("QUEUED FREE A BODY")

@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var score: Label = $Environment/Score
+
 @export var enemy: PackedScene
 
 var reloading: bool = false
@@ -7,7 +9,6 @@ var reloading: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -17,6 +18,9 @@ func _process(_delta: float) -> void:
 		await get_tree().create_timer(2).timeout
 		Engine.time_scale = 1
 		get_tree().reload_current_scene()
+		return
+	
+	score.text = "Score " + str(GameManager.score)
 	
 	if randi_range(0, 1000) == 999:
 		var projectile = enemy.instantiate() as CharacterBody2D
