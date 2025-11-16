@@ -1,9 +1,6 @@
-extends Node
+extends Control
 
-var score: int = 0
-var score_steps: int = 45
-var lives: int = 3
-var game_speed: float = 1.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,9 +9,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-	
-func increment_score() -> void:
-	score += score_steps
 
-func remove_life() -> void:
-	lives -= 1
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_options_value_changed(value: float) -> void:
+	GameManager.game_speed = value
+	Engine.time_scale = value
