@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 	score.text = "Score " + str(GameManager.score)
 	lives.text = str(GameManager.lives) + " Lives"
 	
-	if randi_range(0, 1000) >= 995:
+	if randi_range(0, 1000) >= (995.0 - int((GameManager.score / float(GameManager.score_steps)) / 5.0)):
 		var projectile = enemy.instantiate() as CharacterBody2D
 		projectile.global_position = self.global_position
 		projectile.position.y += 20
